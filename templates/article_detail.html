@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div style="text-align: center;font-family: 'Lobster', cursive;" class="container">
+        <h1>{{ object.title }}</h1>
+        <p>{{ object.body }}</p><br>
+        <h2>By: {{ object.author }}</h2>
+        <a href="{% url 'home' %}">
+            <input type="button" value="<-Back" class="btn btn-info">
+        </a>
+    </div>
+
+{% endblock %}

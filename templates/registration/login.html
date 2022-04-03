@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog App- Login</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body style="background-color: aliceblue" id="my_body">
+<div style="margin-top: 50px;font-family: 'Lobster', cursive;font-size: 20px" class="container">
+    <h1 style="text-align: center;">Welcome</h1>
+    <form method="POST" class="col-12">
+        {% csrf_token %}
+        <span class="col-12">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </span>
+        <span class="col-12">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </span>
+        <button type="submit" class="btn btn-info">Login</button>
+    </form><br>
+    <a href="{% url 'signup' %}">
+        <input type="button" value="Signup" class="btn btn-dark">
+    </a>
+</div>
+</body>
+</html>

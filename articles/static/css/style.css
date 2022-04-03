@@ -1,0 +1,9 @@
+#my_body {
+    height: fit-content;
+    display: block;
+    text-align: center;
+    margin-top: 20%;
+}
+form {
+    display: inline-block;
+}

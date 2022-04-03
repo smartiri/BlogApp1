@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div style="font-family: 'Lobster', cursive;" class="container">
+        <div class="row" style="margin: 1.5%">
+            <h1 style="text-align: center" class=" col-sm-10">Today's Articles</h1>
+            <a href="{% url 'article_create' %}">
+                <input type="button" value="Create Article" class="btn btn-info" style="margin-left:2% ">
+            </a>
+        </div>
+        <table class="table table-striped col-12">
+            <thead>
+            <th>#</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            </thead>
+
+            {% for article in articles %}
+                <tr>
+                    <td></td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.author }}</td>
+                    {% if article.author.pk == request.user.pk %}
+                        <td>
+                            <a href="{% url 'article_detail' article.id %}">
+                                <input type="button" value="Detail">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'article_update' article.id %}">
+                                <input type="button" value="Update">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'article_delete' article.id %}">
+                                <input type="button" value="Delete">
+                            </a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <a href="{% url 'article_detail' article.id %}">
+                                <input type="button" value="Detail">
+                            </a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div>
+    </div>
+{% endblock %}

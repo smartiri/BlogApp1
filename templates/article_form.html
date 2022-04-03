@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="container" style="font-family: 'Lobster', cursive;">
+        <div class="col-12" style="padding: 2%;text-align: center">
+            <h1>Create Your Article</h1>
+        </div>
+        <div class="col-12" style="text-align: center">
+            <form method="post" action="">
+                {% csrf_token %}
+                <label>Title:</label>
+                <span>{{ form.title }}</span><br>
+                <label>Body:</label><br>
+                <span>{{ form.body }}</span><br>
+                <input type="submit" value="Submit">
+                <a href="{% url 'home' %}">
+                    <input type="button" value="Cancel">
+                </a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
